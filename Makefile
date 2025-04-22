@@ -39,16 +39,20 @@ test-unit $(UNITCOVEROUT):
 	@echo "+ $@"
 	go test -v --coverprofile=$(UNITCOVEROUT) $(PKGS)
 
-test-unit-viz: $(UNITCOVEROUT)
+test-unit-cov: $(UNITCOVEROUT)
+	@echo "+ $@"
+	go tool cover -func=$^
+
+test-unit-cov-viz: $(UNITCOVEROUT)
 	@echo "+ $@"
 	go tool cover -html=$^
 
 test-integration: $(SUTBIN) | $(INTCOVEROUT)
 	@echo "+ $@"
-	-GOCOVERDIR=$(INTCOVEROUT) ./$(SUTBIN)
+	GOCOVERDIR=$(INTCOVEROUT) ./$(SUTBIN)
 
-test-integration-viz: test-integration | $(INTCOVEROUT)
+test-integration-cov: | $(INTCOVEROUT)
 	@echo "+ $@"
 	go tool covdata func -i=$(INTCOVEROUT)
 
-.PHONY: all build clean show-coverpkgs test test-unit test-integration test-unit-viz test-integration-viz
+.PHONY: all build clean show-coverpkgs test test-unit test-integration test-unit-cov test-integration-cov
