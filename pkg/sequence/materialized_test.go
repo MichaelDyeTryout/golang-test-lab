@@ -68,3 +68,24 @@ func TestCountingNumbersCorrectQuantity(t *testing.T) {
 		t.Errorf("Error should be nil but got %v", err)
 	}
 }
+
+func TestIntegerRangeInclusiveEmpty(t *testing.T) {
+	begin := int8(0)
+	end := int8(-2)
+
+	seq, err := IntegerRange(begin, end)
+
+	if err != nil {
+		t.Errorf("Error should be nil for (%d, %d) but got %v", begin, end, err)
+		return // remember that golang t.Errorf() continues execution
+	}
+
+	if seq == nil {
+		t.Errorf("Integer range slice nil for given input (%d, %d)", begin, end)
+		return // remember that golang t.Errorf() continues execution
+	}
+
+	if len(*seq) != 0 {
+		t.Errorf("Requested range (%d, %d) and got %d", begin, end, len(*seq))
+	}
+}
