@@ -1,3 +1,3 @@
-module github.com/michaeldye/tt-golang-staticanalysis
+module github.com/michaeldye/golang-test-lab
 
 go 1.24.1
