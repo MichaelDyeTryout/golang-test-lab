@@ -32,6 +32,10 @@ clean:
 	rm -f $(UNITCOVEROUT) $(SUTBIN)
 	rm -Rf $(INTTEST_DIR)
 
+format:
+	@echo "+ $@"
+	go fmt $(PKGS)
+
 # all tests
 test: test-unit test-integration
 
@@ -55,4 +59,4 @@ test-integration-cov: | $(INTCOVEROUT)
 	@echo "+ $@"
 	go tool covdata func -i=$(INTCOVEROUT)
 
-.PHONY: all build clean show-coverpkgs test test-unit test-integration test-unit-cov test-integration-cov
+.PHONY: all build clean format show-coverpkgs test test-unit test-integration test-unit-cov test-integration-cov
