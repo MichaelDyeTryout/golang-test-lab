@@ -17,3 +17,20 @@ func CountingNumbers(qty int8) (*[]int8, error) {
 
 	return &nums, nil
 }
+
+func IntegerRange(begin int8, end int8) (*[]int8, error) {
+	// Return sequence of integers from begin to end, exclusive.
+
+	// We prefer returning usable, empty slice to nil.
+	if begin > end {
+		return &[]int8{}, nil
+	}
+
+	nums := make([]int8, end-begin)
+
+	for v := begin; v < end; v++ {
+		nums = append(nums, v)
+	}
+
+	return &nums, nil
+}
