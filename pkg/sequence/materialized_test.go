@@ -35,7 +35,7 @@ func TestCountingNumbersBoundaryLow(t *testing.T) {
 	head := (*seq)[0]
 
 	if head != 1 {
-		t.Errorf("Requested 1 counting number but got %d", head)
+		t.Errorf("Requested 1 counting number and expected value 1 but got %d", head)
 	}
 	if err != nil {
 		t.Errorf("Error should be nil but got %v", err)
