@@ -3,7 +3,7 @@ export SHELL := /usr/bin/env TZ=UTC bash
 SOURCES := $(shell find . -name "*.go" | xargs)
 PKGS := $(shell go list ./...)
 
-UNITCOVEROUT := unitcoverage.out
+UNITCOVEROUT := coverage.txt
 COVERPKGS := $(shell echo "$(PKGS)" | sed 's, ,\,,')
 
 INTTEST_DIR := inttest
