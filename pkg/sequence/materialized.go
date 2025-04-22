@@ -8,11 +8,28 @@ func CountingNumbers(qty int8) (*[]int8, error) {
 		return &[]int8{}, nil
 	}
 
-	var nums []int8
+	nums := make([]int8, qty)
 
 	for ix := range qty {
 		v := ix + 1
-		nums = append(nums, v)
+		nums[ix] = v
+	}
+
+	return &nums, nil
+}
+
+func Repeat(qty int8, val int) (*[]int, error) {
+	// Return a slice of qty numbers, all with given val.
+
+	// We prefer returning usable, empty slice to nil.
+	if qty < 1 {
+		return &[]int{}, nil
+	}
+
+	nums := make([]int, qty)
+
+	for ix := range qty {
+		nums[ix] = val
 	}
 
 	return &nums, nil
