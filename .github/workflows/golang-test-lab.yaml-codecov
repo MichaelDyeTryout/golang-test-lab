@@ -21,9 +21,7 @@ jobs:
       - name: Run unit tests
         run: make test-unit
 
-      - name: Code Coverage Annotations
-        uses: ggilder/codecoverage@v1.2.5
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v5
         with:
-          GITHUB_TOKEN: ${{secrets.PR_ANNOTATION_TOKEN}}
-          COVERAGE_FILE_PATH: coverage.out
-          COVERAGE_FORMAT: go
+          token: ${{ secrets.CODECOV_TOKEN }}
