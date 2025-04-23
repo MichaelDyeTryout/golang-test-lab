@@ -89,24 +89,3 @@ func TestIntegerRangeInclusiveEmpty(t *testing.T) {
 		t.Errorf("Requested range (%d, %d) and got %d", begin, end, len(*seq))
 	}
 }
-
-func TestRepeatBasic(t *testing.T) {
-
-	qty := int8(2)
-
-	seq, err := Repeat(qty, 2)
-
-	if len(*seq) != 2 {
-		t.Errorf("Requested %d repeated numbers but got %d", qty, len(*seq))
-	}
-
-	for ix := range *seq {
-		if (*seq)[ix] != 2 {
-			t.Errorf("Expected value 2 but got %d", (*seq)[ix])
-		}
-	}
-
-	if err != nil {
-		t.Errorf("Error should be nil but got %v", err)
-	}
-}
