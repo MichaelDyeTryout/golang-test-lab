@@ -22,8 +22,9 @@ jobs:
         run: make test-unit
 
       - name: Code Coverage Annotations
-        uses: ggilder/codecoverage@v1.2.7
+        uses: MichaelDyeTryout/codecoverage@main
         with:
           GITHUB_TOKEN: ${{secrets.PR_ANNOTATION_TOKEN}}
           COVERAGE_FILE_PATH: coverage.out
           COVERAGE_FORMAT: go
+          DEBUG: true
