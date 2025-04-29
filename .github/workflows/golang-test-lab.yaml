@@ -22,7 +22,7 @@ jobs:
         run: make test-unit
 
       - name: Code Coverage Annotations
-        uses: MichaelDyeTryout/codecoverage@5204c70ace0fd704c43cd6cc7a4256c9e5e52ea8
+        uses: MichaelDyeTryout/codecoverage@8fa0263cd5b4bc854337739a59bd78b99fdbe1e1
         with:
           GITHUB_TOKEN: ${{secrets.PR_ANNOTATION_TOKEN}}
           COVERAGE_FILE_PATH: coverage.out
