@@ -27,4 +27,4 @@ jobs:
           GITHUB_TOKEN: ${{secrets.PR_ANNOTATION_TOKEN}}
           COVERAGE_FILE_PATH: coverage.out
           COVERAGE_FORMAT: go
-          DEBUG: true
+          DEBUG: coverage,pr_lines_added
