@@ -21,10 +21,17 @@ jobs:
       - name: Run unit tests
         run: make test-unit
 
+      - name: Generate App Token
+        uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+
       - name: Code Coverage Annotations
         uses: MichaelDyeTryout/codecoverage@352f7a849966937a87c306ab5d54d02d527369a8
         with:
-          GITHUB_TOKEN: ${{secrets.PR_ANNOTATION_TOKEN}}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           COVERAGE_FILE_PATH: coverage.out
           COVERAGE_FORMAT: go
           DEBUG: coverage,pr_lines_added
