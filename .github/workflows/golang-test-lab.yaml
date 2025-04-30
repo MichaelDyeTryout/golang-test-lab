@@ -22,10 +22,10 @@ jobs:
         run: make test-unit
 
       - name: Code Coverage Annotations
-        uses: MichaelDyeTryout/codecoverage@6b5bca7e8ab645e618e35319d87844425dc18f51
+        uses: MichaelDyeTryout/codecoverage@2444b4b7f6951fb6fee5696a41e5b956409d839a
         with:
-          APP_ID: ${{ secrets.GITHUB_APP_ID }}
-          PRIVATE_KEY: ${{ secrets.GITHUB_APP_PRIVATE_KEY }}
+          APP_ID: ${{ secrets.APP_ID }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           COVERAGE_FILE_PATH: coverage.out
           COVERAGE_FORMAT: go
           DEBUG: coverage,pr_lines_added
