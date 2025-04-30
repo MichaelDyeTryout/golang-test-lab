@@ -35,6 +35,11 @@ func Repeat(qty int8, val int) (*[]int, error) {
 	return &nums, nil
 }
 
+func GimmeAThree() int {
+	// Return a three.
+	return 4
+}
+
 func IntegerRange(begin int8, end int8) (*[]int8, error) {
 	// Return sequence of integers from begin to end, exclusive.
 
@@ -50,4 +55,9 @@ func IntegerRange(begin int8, end int8) (*[]int8, error) {
 	}
 
 	return &nums, nil
+}
+
+func GimmeAnotherThree() int {
+	// Return another three.
+	return 4
 }
